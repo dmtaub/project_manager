@@ -1,16 +1,15 @@
 
 html{background:black;height:100%;}
-body{margin:0 auto; width:800px; height:100%;background:white;}
+body{margin:0 auto; width:800px; height:100%;background:white;padding:10px;}
 h1{
   float:left;
-  padding:10px;
 }
 .admin-link{
-  padding:10px;
   float:right;
 }
 #content{
-  float:right;
+  float:left;
+  margin-top: 50px;
 }
 .user {
   margin-left: 20px;

@@ -1,5 +1,11 @@
 %h1 Administration
-%h2 Users
--User.all.each do |u|
-  .user
-    =u.email
+%h3.admin-link
+  =link_to "logout", destroy_user_session_path, :method=>:delete unless current_user.nil?
+#content
+  %p 
+    =link_to "Create User", new_user_registration_path
+  %h2 Users
+  -User.all.each do |u|
+    .user
+      =u.email
+      -#=link_to "edit", edit_user_path

@@ -11,19 +11,3 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130117154535) do
-
-  create_table "projects", force: true do |t|
-    t.string   "name"
-    t.text     "content"
-    t.date     "due"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "priority"
-  end
-
-  add_index "projects", ["priority"], name: "task_priority", unique: true
-  add_index "projects", ["user_id"], name: "index_projects_on_user_id"
-
-end

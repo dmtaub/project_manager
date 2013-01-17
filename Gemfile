@@ -39,4 +39,4 @@ gem 'jbuilder', '~> 1.0.1'
 # gem 'debugger'
 gem 'devise'
 gem 'protected_attributes', github: 'rails/protected_attributes'
-
+gem 'haml'

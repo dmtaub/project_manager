@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  priority: 1
+  project: MyString
+  completion: 2013-01-17
+  status: MyString
+  notes: MyText
+  user_id: 
+
+two:
+  name: MyString
+  priority: 1
+  project: MyString
+  completion: 2013-01-17
+  status: MyString
+  notes: MyText
+  user_id: 

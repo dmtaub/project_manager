@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   def verify_admin
     authenticate_user!
     if !current_user || !current_user.admin?
-      flash[:notice] = "Need Administrator rights to Access that page."
+      flash[:notice] = "Need administrator rights to access that page."
       redirect_to root_path
     end
   end

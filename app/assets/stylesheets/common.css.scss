@@ -1,7 +1,7 @@
-
+$page_width: 800px;
 html{background:black;height:100%;}
-body{margin:0 auto; width:800px; height:100%;background:white;padding:10px;}
-h1{
+body{margin:0 auto; width:$page_width; height:100%;background:white;padding:10px;}
+#title{
   float:left;
 }
 .admin-link{
@@ -13,4 +13,34 @@ h1{
 }
 .user {
   margin-left: 20px;
+}
+
+
+
+@mixin drop-down-box($color,$bgcolor){
+  background-color:$bgcolor;
+  position:absolute;
+  text-align:center;
+  top:0px;
+  margin-top:0;
+  width: $page_width;
+  -webkit-border-bottom-left-radius: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  -moz-border-radius-bottomright: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  -moz-box-shadow: 0 0 0 4px $color;
+  -webkit-box-shadow: 0 0 0 4px $color;
+  box-shadow: 0 0 0 4px $color;
+}
+
+
+p.notice,p.alert{
+  @include drop-down-box(#DBDBDB,white);
+  overflow:hidden;
+  //padding: 8px;
+  //margin-left:-8px;
+  //margin-top:0px;
+  height:20px;
 }

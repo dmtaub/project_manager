@@ -1,17 +1,23 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
 @import 'base.css.scss';
+
 div.team {
+  @include rounded(10px);
   min-width: 100px;
+  padding: 10px;
   background-color: $bgColor;
+  border: solid 2px $borderColor;
   .team-title{
     font-variant:small-caps;
+  }
+  ul.team-people{
+   list-style-type: none;
+  }
     /*.user-link{
       &:hover{
         background-color: blue;
       }
      }*/
-  }
 }

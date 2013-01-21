@@ -1,8 +1,10 @@
-$page_width: 800px;
+@import 'base.css.scss';
+
 html{background:black;height:100%;}
 body{
   margin:0 auto; 
   width:$page_width; 
+  min-height: 300px;
   height:80%;
   background:white;
   padding:10px;

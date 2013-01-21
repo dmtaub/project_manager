@@ -1,6 +1,9 @@
+$page_width: 800px;
+
 $headerColor: #222222;
 $lightBorderColor: #AAAAAA;
 $bgColor: #f1f1f1;
+$borderColor: #DBDBDB;
 $highlightColor: #0B5ED7;
 $attentionColor: #DF2823;
 
@@ -22,6 +25,11 @@ $textActive: $tintTurq;
 $activeLight: $baseTurq;
 $activeDark: $deepTurq;
 
+@mixin rounded($radius){
+  border-radius: $radius;
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+}
 @mixin button($color) {
   border:0px;
   color: white;

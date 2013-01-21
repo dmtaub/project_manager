@@ -1,6 +1,15 @@
-%h1#title PCK SW Team Tracker
+%h1#title Team Tracker
 %h3.admin-link
   =link_to "admin", :admin_index
   =link_to "logout", destroy_user_session_path, :method=>:delete unless current_user.nil?
 #content
-  %p para
+  %div.team
+    .team-title the team
+    %ul.team-people
+      -User.all.each do |u|
+        %li.team-user
+          =link_to u.full_name, "#usr#{u.id}", :class => 'user-link'
+  %div.projects
+    %div.titles
+    %div.data
+    

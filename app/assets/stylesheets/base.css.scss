@@ -1,0 +1,54 @@
+$headerColor: #222222;
+$lightBorderColor: #AAAAAA;
+$bgColor: #f1f1f1;
+$highlightColor: #0B5ED7;
+$attentionColor: #DF2823;
+
+$approvedGrey: #999999;
+
+$pBlue: #0B5ED7; 
+$softBlue: #91C7FF;
+$tintBlue: #E1F1FF;
+$deepBlue: #000066;
+$softTurq: #ACE0E4;
+$tintTurq: #E5F4ED;
+$deepTurq: #00545C;
+$baseTurq: #00A7BC;
+
+$textColor: $tintTurq;
+$textHover: #FFFFFF;
+$textActive: $tintTurq;
+
+$activeLight: $baseTurq;
+$activeDark: $deepTurq;
+
+@mixin button($color) {
+  border:0px;
+  color: white;
+  text-transform:uppercase;
+  font-size:1.0em;
+  background-color:$color;
+  text-decoration:none;
+  padding: 12px 15px;
+  text-align:center;
+  border-radius:6px;
+  -moz-border-radius: 6px;
+  font-weight:bold;
+
+  &:active {
+    opacity:0.7;
+
+  }
+}
+@mixin no-select {
+  -moz-user-select: none; /* mozilla browsers */
+  -khtml-user-select: none; /* webkit browsers */
+  -webkit-user-select: none; 
+  -o-user-select: none;    
+  user-select: none;
+}
+@mixin no-cursor {
+  @include no-select;
+  cursor: none;
+}
+

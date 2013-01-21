@@ -18,7 +18,18 @@ body{
   float:right;
 }
 #content{
-  float:left;
+  .home-link{
+    font-size:2em;
+    text-decoration: none;
+    float:right;
+    &:hover{
+      background-color: white;
+      color: inherit;
+      text-decoration: underline; 
+    }
+  }
+  width: 40%;
+  margin:0 auto;
   margin-top: 50px;
 }
 .user {

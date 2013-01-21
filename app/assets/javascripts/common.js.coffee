@@ -1,19 +1,23 @@
 $ ->
-  a=$('.alert').text("B")
-  n=$('.notice').text("D")
+  a=$('.alert')
+  n=$('.notice')
+  fc = $('.flash-container')
 
-  a.hide()
-  n.hide()
+  fc.hide()
 
-  if a.text() 
-    n.css('top',a.height()+4)
-    a.slideDown()
+  if a.text()
+    show = true
+  else
+    a.hide()
+
+  if n.text()
+    show = true
+  else 
+    n.hide()
+  
+  if !!show
+    fc.slideDown()
     setTimeout =>
-      a.slideUp()
-    ,5000
-  if n.text() 
-    n.slideDown()
-    setTimeout =>
-      n.slideUp()
+      fc.slideUp()
     ,5000
     

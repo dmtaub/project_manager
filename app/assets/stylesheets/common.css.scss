@@ -1,6 +1,16 @@
 $page_width: 800px;
 html{background:black;height:100%;}
-body{margin:0 auto; width:$page_width; height:100%;background:white;padding:10px;}
+body{
+  margin:0 auto; 
+  width:$page_width; 
+  height:80%;
+  background:white;
+  padding:10px;
+  margin-top: 60px;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+}
 #title{
   float:left;
 }
@@ -16,12 +26,9 @@ body{margin:0 auto; width:$page_width; height:100%;background:white;padding:10px
 }
 
 
-
 @mixin drop-down-box($color,$bgcolor){
   background-color:$bgcolor;
-  position:absolute;
   text-align:center;
-  top:0px;
   margin-top:0;
   width: $page_width;
   -webkit-border-bottom-left-radius: 5px;
@@ -37,10 +44,14 @@ body{margin:0 auto; width:$page_width; height:100%;background:white;padding:10px
 
 
 p.notice,p.alert{
-  @include drop-down-box(#DBDBDB,white);
-  overflow:hidden;
   //padding: 8px;
   //margin-left:-8px;
-  //margin-top:0px;
-  height:20px;
+  margin:2px;
+}
+
+
+.flash-container{
+  @include drop-down-box(#DBDBDB,white);
+  position: absolute;
+  top:0px;
 }

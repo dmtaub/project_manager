@@ -2,10 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import 'base.css.scss';
-
+table.projects{width:60%; display:inline;}
 div.team {
   @include rounded(10px);
   min-width: 100px;
+  width:40%;
   padding: 10px;
   background-color: $bgColor;
   border: solid 2px $borderColor;
@@ -14,6 +15,19 @@ div.team {
   }
   ul.team-people{
    list-style-type: none;
+  }
+  .user-link{
+    width: 100%;
+    height: 20px;
+    display: block;
+    padding-left:60px;
+    margin-left: -50px;
+    //@include rounded(5px);
+    text-decoration: none;
+    
+    color: $pBlue;
+    &:hover{color: white;background:$softBlue;}
+    &.active {color: white; background: $pBlue;}
   }
     /*.user-link{
       &:hover{

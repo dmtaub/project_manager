@@ -1,5 +1,6 @@
 @import 'base.css.scss';
 
+
 html{background:black;height:100%;}
 body{
   margin:0 auto; 
@@ -20,16 +21,20 @@ body{
   float:right;
 }
 #content{
+  position:relative;
   .home-link{
     font-size:2em;
     text-decoration: none;
-    float:right;
+    position:absolute;
+    top:0px;
+    right: 0px;
     &:hover{
       background-color: white;
       color: inherit;
       text-decoration: underline; 
     }
   }
+  &.full-width{width: 100%;}
   width: 40%;
   margin:0 auto;
   margin-top: 50px;

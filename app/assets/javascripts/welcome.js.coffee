@@ -6,6 +6,10 @@ $ ->
     $('.user-link').removeClass('active')
     $(e.target).addClass('active')
 
+  $('.add-new').click (e)->
+    alert "ADD!"
+    #$.dialog($('div'))
+
 routie "usr:id", (id)->
   data=$("tbody.data")
   data.find("tr").hide()

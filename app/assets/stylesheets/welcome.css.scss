@@ -2,11 +2,29 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import 'base.css.scss';
-table.projects{width:60%; display:inline;}
+table.projects {
+  position:absolute; 
+  width:75%;
+  right:0%;
+  top:20px;
+  left: 25%;
+  th{
+    text-align:left;
+    text-transform:capitalize;
+    &.add-new{
+      @include button($deepBlue);
+      &:hover{background-color:$pBlue;}
+      cursor: pointer;
+      width: 75px;
+    }
+  }
+}
+
 div.team {
+  position:absolute;
+  width:20%;
   @include rounded(10px);
   min-width: 100px;
-  width:40%;
   padding: 10px;
   background-color: $bgColor;
   border: solid 2px $borderColor;
@@ -15,6 +33,7 @@ div.team {
   }
   ul.team-people{
    list-style-type: none;
+   text-indent: -40px;
   }
   .user-link{
     width: 100%;

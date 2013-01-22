@@ -12,5 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require routie
 //= require turbolinks
 //= require_tree .
+

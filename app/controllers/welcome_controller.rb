@@ -5,7 +5,7 @@ class WelcomeController < ApplicationController
 
     @projects = Project.all#where :user_id => @user.id
     #@columns = Project.column_names.select {|x| not x.include? "_"}
-    @columns = ["name","completion","status","notes"]
+    @columns = ["project","target_completion","status","notes"]
 
   end
 end

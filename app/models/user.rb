@@ -1,9 +1,8 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
-  #column :admin, :type => Boolean, :default => false
   has_many :projects
-  accepts_nested_attributes_for :projects
+  #accepts_nested_attributes_for :projects
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable

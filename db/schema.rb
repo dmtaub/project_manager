@@ -14,15 +14,14 @@
 ActiveRecord::Schema.define(:version => 20130121190024) do
 
   create_table "projects", :force => true do |t|
-    t.string   "name"
     t.integer  "priority"
     t.string   "project"
-    t.date     "completion"
+    t.date     "target_completion"
     t.string   "status"
     t.text     "notes"
-    t.integer  "user_id_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "user_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "users", :force => true do |t|

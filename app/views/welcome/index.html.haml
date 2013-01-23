@@ -20,8 +20,8 @@
         %tr{:class=>project.user_id}
           -@columns.each do |pc|
             %td{:class=>pc}
-              - if pc == 'name'
-                = best_in_place(project, :name)
+              - if pc == 'project'
+                = best_in_place(project, :project)
               - else
                 = project[pc] || "-N/A-"
 

@@ -1,7 +1,6 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_filter :set_project, only: [:show, :edit, :update, :destroy]
 
-  in_place_edit_for :project, :name
   # GET /projects
   # GET /projects.json
   def index
@@ -69,7 +68,7 @@ class ProjectsController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def project_params
-      params.require(:project).permit(:name, :priority, :project, :completion, :status, :notes, :user_id)
-    end
+ #   def project_params
+ #     params.require(:project).permit(:name, :priority, :project, :completion, :status, :notes, :user_id)
+ #   end
 end

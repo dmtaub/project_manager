@@ -16,5 +16,15 @@
           %th{:class=>c}=c
         %th.add-new Create
     %tbody.data
-      -@projects.each do |p|
-        =render :partial => '/projects/row', :locals => {:project => p}
+      -@projects.each do |project|
+        %tr{:class=>project.user_id}
+          -@columns.each do |pc|
+            %td{:class=>pc}
+              - if pc == 'name'
+                = best_in_place(project, :name)
+              - else
+                = project[pc] || "-N/A-"
+
+-#%p{:style=>"position:absolute; bottom:0px;"}
+  =Project.first.id
+  = in_place_editor_field(:project, 'name', :url => project_url(Project.first))

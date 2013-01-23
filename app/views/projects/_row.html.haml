@@ -1,0 +1,8 @@
+%tr{:class=>project.user_id}
+  -@columns.each do |pc|
+    %td{:class=>pc}
+      - if pc == 'name'
+        = in_place_editor_field(project, 'name')
+      - else
+        = project[pc] || "-N/A-"
+

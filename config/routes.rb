@@ -1,4 +1,7 @@
 ProjectManager::Application.routes.draw do
+  resources :projs
+
+
   devise_for :users
   resources :projects
   resources :admin

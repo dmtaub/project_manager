@@ -7,7 +7,7 @@ class CreateProjects < ActiveRecord::Migration
       t.date :completion
       t.string :status
       t.text :notes
-      t.references :user, index: true
+      t.references :user_id, index: true
 
       t.timestamps
     end

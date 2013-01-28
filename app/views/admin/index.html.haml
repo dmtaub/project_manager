@@ -1,9 +1,7 @@
 %h1#title Administration
-%h3.admin-link
-  =link_to "logout", destroy_user_session_path, :method=>:delete unless current_user.nil?
 #content
   %p 
-    =link_to "Create User", new_user_registration_path
+    =link_to "Create User", "#nothingyet"
   %h2 Users
   -User.all.each do |u|
     .user

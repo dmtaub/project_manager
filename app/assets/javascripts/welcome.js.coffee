@@ -7,12 +7,19 @@ $ ->
 
   $('.user-link').click (e)->
     $('.user-link').removeClass('active')
-    $(e.target).addClass('active')
+    $(e.target).closest('li').addClass('active')
+    e.stopPropagation()
+  $('.team').click (e)->
+    $('.user-link').removeClass('active')
+    routie('usr-all')
 
   $('.add-new').click (e)->
     alert "ADD!"
     #$.dialog($('div'))
 
+routie "usr-all", ->
+  data=$("tbody.data")
+  data.find("tr").show()
 routie "usr:id", (id)->
   data=$("tbody.data")
   data.find("tr").hide()

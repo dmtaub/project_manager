@@ -1,15 +1,15 @@
-%h1#title Team Tracker
+-#%h1#title Team Tracker
 -#%h3.admin-link
   =link_to "admin", :admin_index
   =link_to "logout", destroy_user_session_path, :method=>:delete unless current_user.nil?
 #content.full-width
-  %div.team
-    .team-title the team
-    %ul.team-people
+  %div.team.well.sidebar-nav.span2
+    %ul.team-people.nav.nav-list
+      %li.nav-header the team
       -@users.each do |u|
-        %li 
-          =link_to u.full_name, "#usr#{u.id}", :class => 'user-link'
-  %table.projects
+        %li.user-link
+          =link_to u.full_name, "#usr#{u.id}"
+  %table.projects.span9
     %thead
       %tr.titles
         -@columns.each do |c|

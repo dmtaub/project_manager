@@ -1,10 +1,9 @@
 %h1#title Administration
-#content
-  %p 
-    =link_to "Create User", "#nothingyet"
-  %h2 Users
-  -User.all.each do |u|
-    .user
-      =u.full_name
-      =u.email
-      -#=link_to "edit", edit_user_path
+%p 
+  =link_to "Create User", "#nothingyet"
+%h2 Users
+-User.all.each do |u|
+  .user
+    =u.full_name
+    =u.email
+    -#=link_to "edit", edit_user_path

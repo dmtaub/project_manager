@@ -20,7 +20,9 @@ $ ->
 routie "usr-all", ->
   data=$("tbody.data")
   data.find("tr").show()
+  data.sortable('disable')
 routie "usr:id", (id)->
   data=$("tbody.data")
   data.find("tr").hide()
   data.find("tr.#{id}").show()
+  data.sortable()

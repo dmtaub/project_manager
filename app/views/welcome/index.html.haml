@@ -2,28 +2,28 @@
 -#%h3.admin-link
   =link_to "admin", :admin_index
   =link_to "logout", destroy_user_session_path, :method=>:delete unless current_user.nil?
-#content.full-width
-  %div.team.well.sidebar-nav.span2
-    %ul.team-people.nav.nav-list
-      %li.nav-header the team
-      -@users.each do |u|
-        %li.user-link
-          =link_to u.full_name, "#usr#{u.id}"
-  %table.projects.span9
-    %thead
-      %tr.titles
-        -@columns.each do |c|
-          %th{:class=>c}=c
-        %th.add-new Create
-    %tbody.data
-      -@projects.each do |project|
-        %tr{:class=>project.user_id}
-          -@columns.each do |pc|
-            %td{:class=>pc}
-              - if pc == 'project'
-                = best_in_place(project, :project)
-              - else
-                = project[pc] || "-N/A-"
+%div.team.well.sidebar-nav.span3
+  %ul.team-people.nav.nav-list
+    %li.nav-header the team
+    -@users.each do |u|
+      %li.user-link
+        =link_to u.full_name, "#usr#{u.id}"
+
+%a.right.btn.add-new Create New Project
+%table.table.table-striped.span9
+  %thead
+    %tr.titles
+      -@columns.each do |c|
+        %th{:class=>c}=c
+  %tbody.data
+    -@projects.each do |project|
+      %tr{:class=>project.user_id}
+        -@columns.each do |pc|
+          %td{:class=>pc}
+            - if pc == 'project'
+              = best_in_place(project, :project)
+            - else
+              = project[pc] || "-N/A-"
 
 -#%p{:style=>"position:absolute; bottom:0px;"}
   =Project.first.id

@@ -1,4 +1,17 @@
 @import "bootstrap";
 body { padding-top: 60px; }
-#ui-datepicker-div {top:60px !important;}
 @import "bootstrap-responsive";
+
+@import "base.css.scss";
+#ui-datepicker-div {
+  top:60px !important;
+  position:relative;
+
+  .ui-datepicker-today{
+    @include rounded(5px);
+    background-color: $bgColor;
+  }
+  .ui-state-active{
+    background-color: $deepBlue;
+  }
+}

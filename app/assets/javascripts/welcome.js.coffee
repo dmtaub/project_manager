@@ -9,20 +9,32 @@ $ ->
     $('.user-link').removeClass('active')
     $(e.target).closest('li').addClass('active')
     e.stopPropagation()
+
   $('.team').click (e)->
-    $('.user-link').removeClass('active')
     routie('usr-all')
 
   $('.add-new').click (e)->
     alert "ADD!"
     #$.dialog($('div'))
 
-routie "usr-all", ->
+route_all = () ->
+  $('.user-link').removeClass('active')
   data=$("tbody.data")
   data.find("tr").show()
-  data.sortable('disable')
+  data.sortable('disable') if data.hasClass('ui-sortable')
+
 routie "usr:id", (id)->
+  if id == '-all'
+    route_all()
+    return
   data=$("tbody.data")
   data.find("tr").hide()
   data.find("tr.#{id}").show()
-  data.sortable()
+  if data.hasClass('ui-sortable')
+    data.sortable('enable')
+  else
+    # set element to sortable if it hasn't been done
+    setTimeout ()->
+      data=$("tbody.data")
+      data.sortable()
+    ,300

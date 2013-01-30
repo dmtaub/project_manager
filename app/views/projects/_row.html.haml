@@ -5,6 +5,8 @@
         = best_in_place(project, :project)
       - elsif pc == 'target_completion'
         = best_in_place(project, :target_completion, :type => :date)
+      - elsif pc == 'status'
+        = best_in_place(project, :status, :type => :select, :collection => Project.statuses.map{|x|[x,x]})
       - else
         = project[pc] || "-N/A-"
 

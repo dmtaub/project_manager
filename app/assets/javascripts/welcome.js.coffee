@@ -2,6 +2,13 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $ ->
+
+  $.datepicker.setDefaults
+    showOn: 'both'
+    buttonImageOnly: true
+    buttonImage: 'images/calendar.gif'
+    buttonText: 'Calendar'
+  
   $('.best_in_place').best_in_place().bind "ajax:success", () ->
     alert('Name updated for '+$(this).data('userName'))
 

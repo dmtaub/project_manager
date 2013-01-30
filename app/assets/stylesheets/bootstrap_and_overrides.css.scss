@@ -5,13 +5,14 @@ body { padding-top: 60px; }
 @import "base.css.scss";
 #ui-datepicker-div {
   top:60px !important;
-  position:relative;
+  left: 60% !important;
+  position:fixed !important;
 
   .ui-datepicker-today{
     @include rounded(5px);
-    background-color: $bgColor;
+    background-color: $tintBlue !important;
   }
   .ui-state-active{
-    background-color: $deepBlue;
+    background-color: $pBlue;
   }
 }

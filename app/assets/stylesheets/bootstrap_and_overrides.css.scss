@@ -1,7 +1,9 @@
 @import "bootstrap";
 body { padding-top: 60px; }
 @import "bootstrap-responsive";
-
+form{
+  @extend .form-inline;
+}
 @import "base.css.scss";
 #ui-datepicker-div {
   top:60px !important;

@@ -7,6 +7,8 @@
         = best_in_place(project, :target_completion, :type => :date)
       - elsif pc == 'status'
         = best_in_place(project, :status, :type => :select, :collection => Project.statuses.map{|x|[x,x]})
+      - elsif pc == 'notes'
+        = best_in_place(project, :notes, :type => :textarea)#, :ok_button => 'Save', :cancel_button => 'Cancel')
       - else
         = project[pc] || "-N/A-"
 

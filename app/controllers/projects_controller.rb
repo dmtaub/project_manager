@@ -41,11 +41,11 @@ class ProjectsController < ApplicationController
   # POST /projects.json
   def create
     @project = Project.new(params[:project])
-
+    @columns = Project.displayColumns
     respond_to do |format|
       if @project.save
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
-        format.json { render json: @project, status: :created, location: @project }
+        format.json { render json: {html: (render_to_string :template => 'projects/_row.html.haml', :locals => {:project => @project}) }, status: :created }
       else
         format.html { render action: "new" }
         format.json { render json: @project.errors, status: :unprocessable_entity }
@@ -58,7 +58,11 @@ class ProjectsController < ApplicationController
   def update
 
     respond_to do |format|
-      if @project.update_attributes(params[:project])
+      parameters = params[:project].slice(:project, :target_completion, :status, :notes)
+      if parameters.has_key? :target_completion
+        parameters[:target_completion] = Date.parse(parameters[:target_completion])
+      end
+      if @project.update_attributes(parameters)
         format.html { redirect_to @project, notice: 'Project was successfully updated.' }
         format.json { respond_with_bip(@project)}#head :no_content }
       else

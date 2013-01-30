@@ -17,16 +17,7 @@
           %th{:class=>c}=c
     %tbody.data
       -@projects.each do |project|
-        %tr{:class=>project.user_id}
-          -@columns.each do |pc|
-            %td{:class=>pc}
-              - if pc == 'project'
-                = best_in_place(project, :project)
-              - elsif pc == 'target_completion'
-                = best_in_place(project, :target_completion, :type => :date)
-              - else
-                = project[pc] || "-N/A-"
-
+        =render :partial => 'projects/row', :locals => {:project=>project}
   -#%p{:style=>"position:absolute; bottom:0px;"}
     =Project.first.id
     = in_place_editor_field(:project, 'name', :url => project_url(Project.first))

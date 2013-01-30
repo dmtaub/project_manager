@@ -1,8 +1,10 @@
 %tr{:class=>project.user_id}
   -@columns.each do |pc|
     %td{:class=>pc}
-      - if pc == 'name'
-        = in_place_editor_field(project, 'name')
+      - if pc == 'project'
+        = best_in_place(project, :project)
+      - elsif pc == 'target_completion'
+        = best_in_place(project, :target_completion, :type => :date)
       - else
         = project[pc] || "-N/A-"
 

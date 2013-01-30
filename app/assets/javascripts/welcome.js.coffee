@@ -4,13 +4,9 @@
 $ ->
 
   $.datepicker.setDefaults
-    showOn: 'both'
-    buttonImageOnly: true
-    buttonImage: 'images/calendar.gif'
-    buttonText: 'Calendar'
-  
-  $('.best_in_place').best_in_place().bind "ajax:success", () ->
-    alert('Name updated for '+$(this).data('userName'))
+    showOn: 'focus'
+    dateFormat: "yy-mm-dd"
+  $('.best_in_place').best_in_place()
 
   $('.user-link').click (e)->
     $('.user-link').removeClass('active')
@@ -21,7 +17,25 @@ $ ->
     routie('usr-all')
 
   $('.add-new').click (e)->
-    alert "ADD!"
+    id = $(e.target).data("user")
+    if !id 
+      alert("no team member selected")
+      return
+    console.log id
+    $.ajax 
+      url:"projects.json"
+      type: "POST"
+      dataFormat: "json"
+      data: 
+        project:
+          user_id: id
+      success: (a)->
+        console.log a
+        if a.html
+          newRow = $(a.html)
+          newRow.find('.best_in_place').best_in_place()
+          $('.data').append(newRow)
+
     #$.dialog($('div'))
 
 route_all = () ->
@@ -29,6 +43,7 @@ route_all = () ->
   data=$("tbody.data")
   data.find("tr").show()
   data.sortable('disable') if data.hasClass('ui-sortable')
+  $('.add-new').data("user",null)
 
 routie "usr:id", (id)->
   if id == '-all'
@@ -37,6 +52,7 @@ routie "usr:id", (id)->
   data=$("tbody.data")
   data.find("tr").hide()
   data.find("tr.#{id}").show()
+  $('.add-new').data("user",id)
   if data.hasClass('ui-sortable')
     data.sortable('enable')
   else

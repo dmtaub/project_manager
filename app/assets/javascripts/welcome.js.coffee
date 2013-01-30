@@ -33,8 +33,8 @@ $ ->
           newRow = $(a.html)
           newRow.find('.best_in_place').best_in_place()
           $('.data').append(newRow)
-    data=$('tbody.data')
-    data.sortable()
+  data=$('tbody.data')
+  data.sortable()
     #$.dialog($('div'))
 
 route_all = () ->
@@ -45,9 +45,9 @@ route_all = () ->
   $('.add-new').data("user",null)
 
 routie "usr:id", (id)->
-  console.log "usr triggr #{id}"
   if id == '-all'
-    route_all()
+    $ ->
+      route_all()
     return
   $ ->
     $('.user-link').removeClass('active')

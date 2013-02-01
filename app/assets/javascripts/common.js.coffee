@@ -1,3 +1,6 @@
+window.isNumeric = (n) ->
+    return !isNaN(parseFloat(n)) && isFinite(n)
+
 $ ->
   a=$('.alert')
   n=$('.notice')

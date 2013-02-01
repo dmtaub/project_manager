@@ -40,7 +40,30 @@ $ ->
             $(e.target).closest('tr').remove()
           $('.data').append(newRow)
   data=$('tbody.data')
-  data.sortable()
+  after_update = (event,ui)->
+    uid = data.data("user")
+    return if !isNumeric(uid)
+    items  = []
+    data.find('tr:visible').each (idx,elt)->
+      id=elt.id
+      if !id
+        id = 0
+      else
+        id = id[7..]
+      id = 0 if id == null
+      items.push id.toString()
+
+    $.ajax
+      url:"users/#{uid}/reorder_projects.json"
+      type: "POST"
+      dataFormat: "json"
+      data: 
+        projects: JSON.stringify(items)
+      success: (a)->
+        console.log ("success")
+
+  data.sortable
+    update: after_update
     #$.dialog($('div'))
 
 route_all = () ->
@@ -49,6 +72,7 @@ route_all = () ->
   data.find("tr").show()
   data.sortable('disable') if data.hasClass('ui-sortable')
   $('.add-new').data("user",null)
+  data.data("user",null)
 
 routie "usr:id", (id)->
   if id == '-all'
@@ -62,6 +86,7 @@ routie "usr:id", (id)->
     data.find("tr").hide()
     data.find("tr.#{id}").show()
     $('.add-new').data("user",id)
+    data.data("user",id)
     if data.hasClass('ui-sortable')
       data.sortable('enable')
   #  else

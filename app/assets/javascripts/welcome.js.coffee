@@ -16,6 +16,9 @@ $ ->
   $('.team').click (e)->
     routie('usr-all')
 
+  $('.right a').on 'ajax:success', (e)->
+    $(e.target).closest('tr').remove()
+
   $('.add-new').click (e)->
     id = $(e.target).data("user")
     if !id 

@@ -1,4 +1,4 @@
-%tr{:class=>project.user_id}
+%tr{:class=>project.user_id, :id => "project#{project.id}"}
   -@columns.each do |pc|
     %td{:class=>pc}
       - if pc == 'project'
@@ -11,4 +11,5 @@
         = best_in_place(project, :notes, :type => :textarea)#, :ok_button => 'Save', :cancel_button => 'Cancel')
       - else
         = project[pc] || "-N/A-"
-
+  %td.right
+    =link_to "Delete", project_url(project)+'.json', :remote=>true, :method=>'delete', :confirm => "Really delete <#{project.project}>?"

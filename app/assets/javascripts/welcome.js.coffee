@@ -35,6 +35,9 @@ $ ->
         if a.html
           newRow = $(a.html)
           newRow.find('.best_in_place').best_in_place()
+
+          newRow.find('a').on 'ajax:success', (e)->
+            $(e.target).closest('tr').remove()
           $('.data').append(newRow)
   data=$('tbody.data')
   data.sortable()

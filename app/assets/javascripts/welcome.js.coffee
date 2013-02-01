@@ -54,7 +54,7 @@ $ ->
       items.push id.toString()
 
     $.ajax
-      url:"users/#{uid}/reorder_projects.json"
+      url:"welcome/#{uid}/reorder_projects.json"
       type: "POST"
       dataFormat: "json"
       data: 

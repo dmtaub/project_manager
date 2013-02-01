@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects.json
   def index
-    @projects = Project.all
+    @projects = Project.all.order_by(:priority)
 
     respond_to do |format|
       format.html # index.html.erb

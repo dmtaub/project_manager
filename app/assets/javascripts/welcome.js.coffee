@@ -94,3 +94,6 @@ routie "usr:id", (id)->
 #    setTimeout ()->
 #      data=$("tbody.data")
 #    ,300
+routie "*", (path)->
+  return if path[0..2] ==  'usr'
+  $ -> route_all()

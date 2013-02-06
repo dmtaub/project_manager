@@ -1,4 +1,5 @@
 class WelcomeController < ApplicationController
+  before_filter :verify_admin, only: :reorder_projects
   def reorder_projects
     respond_to do |format|
       format.html { raise ActionController::RoutingError.new('Not Found') }

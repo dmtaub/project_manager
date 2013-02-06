@@ -74,6 +74,7 @@ $ ->
 
 route_all = () ->
   $('.user-link').removeClass('active')
+  $('.user').show()
   data=$("tbody.data")
   data.find("tr").show()
   data.sortable('disable') if data.hasClass('ui-sortable')
@@ -86,6 +87,7 @@ routie "usr:id", (id)->
       route_all()
     return
   $ ->
+    $('.user').hide()
     $('.user-link').removeClass('active')
     $("#ul-#{id}").addClass('active')
     data=$("tbody.data")

@@ -6,6 +6,6 @@ class Project < ActiveRecord::Base
     ["Not Started", "In Progress", "Blocked", "Paused", "Finished"]
   end
   def self.displayColumns
-    ["project","target_completion","status","notes"]
+    ["user","project","target_completion","status","notes"]
   end
 end

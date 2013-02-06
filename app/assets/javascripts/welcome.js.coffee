@@ -64,6 +64,8 @@ $ ->
         projects: JSON.stringify(items)
       success: (a)->
         console.log ("success")
+        vis=data.find("tr:visible").css("background-color","#ffffff")
+        vis.filter(":odd").css("background-color","#f9f9f9")
       error: (a)->
         flash(a.responseText)
         location.reload
@@ -77,7 +79,8 @@ route_all = () ->
   $('.user-link').removeClass('active')
   $('.user').show()
   data=$("tbody.data")
-  data.find("tr").show()
+  vis=data.find("tr").show().css("background-color","#ffffff")
+  vis.filter(":odd").css("background-color","#f9f9f9")
   data.sortable('disable') if data.hasClass('ui-sortable')
   $('.add-new').data("user",null)
   data.data("user",null)
@@ -93,7 +96,8 @@ routie "usr:id", (id)->
     $("#ul-#{id}").addClass('active')
     data=$("tbody.data")
     data.find("tr").hide()
-    data.find("tr.#{id}").show()
+    vis=data.find("tr.#{id}").show().css("background-color","#ffffff")
+    vis.filter(":odd").css("background-color","#f9f9f9")
     $('.add-new').data("user",id)
     data.data("user",id)
     if data.hasClass('ui-sortable')

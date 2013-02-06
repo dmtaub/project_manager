@@ -21,7 +21,7 @@ class WelcomeController < ApplicationController
   end
   
   def index
-    @users = User.all
+    @users = User.order(:full_name)
     #@user = User.first
 
     #@projects = Project.all#where :user_id => @user.id

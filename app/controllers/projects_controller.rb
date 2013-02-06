@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
-  before_filter :verify_admin, except: [:create, :update]
+  before_filter :verify_admin, except: [:create, :update, :destroy]
   before_filter :set_project, only: [:show, :edit, :update, :destroy]
-  before_filter :verify_ownership, only: [:create, :update]
+  before_filter :verify_ownership, only: [:create, :update, :destroy]
 
   def verify_ownership
     if (@project.nil? && params[:project] && params[:project][:user_id])

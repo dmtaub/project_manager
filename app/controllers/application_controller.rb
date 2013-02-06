@@ -8,8 +8,16 @@ class ApplicationController < ActionController::Base
         current_user.save!
         return
       end
-      flash[:notice] = "Need administrator rights to access that page."
-      redirect_to root_path
+      msg = "Need administrator rights to access that page."
+      respond_to do |format|
+        format.html{
+          flash[:notice] = msg
+          redirect_to root_path
+        }
+        format.json {
+          render :json => msg, :status => 401
+        }
+      end
     end
   end
 end

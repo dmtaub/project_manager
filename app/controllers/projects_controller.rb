@@ -1,10 +1,19 @@
 class ProjectsController < ApplicationController
-  before_filter :verify_admin
+  before_filter :verify_admin, except: [:create, :update]
   before_filter :set_project, only: [:show, :edit, :update, :destroy]
+  before_filter :verify_ownership, only: [:create, :update]
+
+  def verify_ownership
+    if @project.user_id == current_user.id
+    else
+      render :json => "You do not have permission to modify projects for that user.", :status => 401
+    end
+
+  end
 
   # GET /projects.json
   def index
-    @projects = Project.all.order_by(:priority)
+    @projects = Project.order(:priority)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -60,7 +69,8 @@ class ProjectsController < ApplicationController
     respond_to do |format|
       parameters = params[:project].slice(:project, :target_completion, :status, :notes)
       if parameters.has_key? :target_completion
-        parameters[:target_completion] = Date.parse(parameters[:target_completion])
+        date = Date.parse(parameters[:target_completion])
+        parameters[:target_completion] = date #unless date.nil?
       end
       if @project.update_attributes(parameters)
         format.html { redirect_to @project, notice: 'Project was successfully updated.' }

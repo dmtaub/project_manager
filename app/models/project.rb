@@ -3,7 +3,7 @@ class Project < ActiveRecord::Base
   validates_presence_of :user_id
 
   def self.statuses
-    ["Not Started", "In Progress", "Paused", "Finished"]
+    ["Not Started", "In Progress", "Blocked", "Paused", "Finished"]
   end
   def self.displayColumns
     ["project","target_completion","status","notes"]

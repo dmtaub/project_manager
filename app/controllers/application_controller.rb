@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
         current_user.save!
         return
       end
-      msg = "Need administrator rights to access that page."
+      msg = "Sorry, you can only do that if you're an administrator."
       respond_to do |format|
         format.html{
           flash[:notice] = msg

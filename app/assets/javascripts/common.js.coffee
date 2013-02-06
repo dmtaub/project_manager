@@ -1,5 +1,7 @@
 window.isNumeric = (n) ->
     return !isNaN(parseFloat(n)) && isFinite(n)
+window.flash = (msg, title="Alert!")->
+  alert(msg)
 
 $ ->
   a=$('.alert')

@@ -22,7 +22,7 @@ $ ->
   $('.add-new').click (e)->
     id = $(e.target).data("user")
     if !id 
-      alert("no team member selected")
+      flash("no team member selected")
       return
     $.ajax 
       url:"projects.json"
@@ -39,6 +39,8 @@ $ ->
           newRow.find('a').on 'ajax:success', (e)->
             $(e.target).closest('tr').remove()
           $('.data').append(newRow)
+      error: (a)->
+        flash(a.responseText)
   data=$('tbody.data')
   after_update = (event,ui)->
     uid = data.data("user")
@@ -61,6 +63,10 @@ $ ->
         projects: JSON.stringify(items)
       success: (a)->
         console.log ("success")
+      error: (a)->
+        flash(a.responseText)
+        location.reload
+        data.sortable('cancel')
 
   data.sortable
     update: after_update

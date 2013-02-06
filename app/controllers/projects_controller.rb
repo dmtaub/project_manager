@@ -10,7 +10,7 @@ class ProjectsController < ApplicationController
       uid = @project.user_id
     end
 
-    unless uid.to_i == current_user.id.to_i
+    unless uid.to_i == current_user.id.to_i || current_user.admin?
       render :json => "You do not have permission to modify projects for this user.", :status => 401
     end
 

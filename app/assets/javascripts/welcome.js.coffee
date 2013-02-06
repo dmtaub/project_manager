@@ -18,6 +18,9 @@ $ ->
 
   $('.right a').on 'ajax:success', (e)->
     $(e.target).closest('tr').remove()
+    data=$('.data')
+    vis=data.find("tr:visible").css("background-color","#ffffff")
+    vis.filter(":odd").css("background-color","#f9f9f9")
 
   $('.add-new').click (e)->
     id = $(e.target).data("user")
@@ -38,8 +41,14 @@ $ ->
 
           newRow.find('a').on 'ajax:success', (e)->
             $(e.target).closest('tr').remove()
+            data=$('.data')
+            vis=data.find("tr:visible").css("background-color","#ffffff")
+            vis.filter(":odd").css("background-color","#f9f9f9")
+
           newRow.find('.user').hide()
-          $('.data').append(newRow)
+          data=$('.data').append(newRow)
+          vis=data.find("tr:visible").css("background-color","#ffffff")
+          vis.filter(":odd").css("background-color","#f9f9f9")
       error: (a)->
         flash(a.responseText,true)
   data=$('tbody.data')

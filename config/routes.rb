@@ -1,6 +1,6 @@
 ProjectManager::Application.routes.draw do
   devise_for :users, :controllers => {:registrations => 'registrations'}
-  resources :projects
+  resources :projects, :only => [:create, :update, :destroy]
   resources :admin do 
     delete :delete_user
   end

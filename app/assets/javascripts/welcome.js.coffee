@@ -22,7 +22,7 @@ $ ->
   $('.add-new').click (e)->
     id = $(e.target).data("user")
     if !id 
-      flash("no team member selected")
+      flash("Please select a team member",true)
       return
     $.ajax 
       url:"projects.json"
@@ -38,9 +38,10 @@ $ ->
 
           newRow.find('a').on 'ajax:success', (e)->
             $(e.target).closest('tr').remove()
+          newRow.find('.user').hide()
           $('.data').append(newRow)
       error: (a)->
-        flash(a.responseText)
+        flash(a.responseText,true)
   data=$('tbody.data')
   after_update = (event,ui)->
     uid = data.data("user")

@@ -11,7 +11,7 @@ class ProjectsController < ApplicationController
     end
 
     unless uid.to_i == current_user.id.to_i
-      render :json => "You do not have permission to modify projects for that user.", :status => 401
+      render :json => "You do not have permission to modify projects for this user.", :status => 401
     end
 
   end

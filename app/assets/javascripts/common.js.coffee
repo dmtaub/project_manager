@@ -1,7 +1,9 @@
 window.isNumeric = (n) ->
     return !isNaN(parseFloat(n)) && isFinite(n)
-window.flash = (msg, title="Alert!")->
-  alert(msg)
+window.flash = (msg, alsoAlert = false, title="Alert!")->
+  if alsoAlert
+    alert(msg)
+  console.log(msg)
 
 $ ->
   a=$('.alert')

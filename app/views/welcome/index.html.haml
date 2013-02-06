@@ -9,7 +9,7 @@
       %li.user-link{:id => "ul-#{u.id}"}
         =link_to u.full_name, "#usr#{u.id}"
 .span9
-  -if current_user && current_user.admin?
+  -if current_user
     %a.right.btn.add-new Create New Project
   %table.table.table-striped
     %thead

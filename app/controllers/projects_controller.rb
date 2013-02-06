@@ -4,8 +4,13 @@ class ProjectsController < ApplicationController
   before_filter :verify_ownership, only: [:create, :update]
 
   def verify_ownership
-    if @project.user_id == current_user.id
-    else
+    if (@project.nil? && params[:project] && params[:project][:user_id])
+      uid = params[:project][:user_id]
+    else 
+      uid = @project.user_id
+    end
+
+    unless uid.to_i == current_user.id.to_i
       render :json => "You do not have permission to modify projects for that user.", :status => 401
     end
 

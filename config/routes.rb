@@ -1,7 +1,9 @@
 ProjectManager::Application.routes.draw do
   devise_for :users, :controllers => {:registrations => 'registrations'}
   resources :projects
-  resources :admin
+  resources :admin do 
+    delete :delete_user
+  end
   resources :welcome do
     post :reorder_projects
   end

@@ -1,9 +1,12 @@
 %h1#title Administration
-%p 
+-#%p 
   =link_to "Create User", "#nothingyet"
 %h2 Users
--User.all.each do |u|
-  .user
-    =u.full_name
-    =u.email
-    -#=link_to "edit", edit_user_path
+.span6
+  %table.full-width.users
+    -User.all.each do |u|
+      %tr 
+        %td=u.full_name
+        %td=u.email
+        %td=link_to "delete",admin_delete_user_path(u), :method=>:delete, :confirm => "Are you sure you want to delete this user and all #{u.projects.count} projects?"
+      -#=link_to "edit", edit_user_path

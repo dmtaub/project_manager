@@ -1,5 +1,5 @@
 ProjectManager::Application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => 'registrations'}
   resources :projects
   resources :admin
   resources :welcome do
